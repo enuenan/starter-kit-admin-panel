@@ -1,0 +1,8 @@
+.theme-button[aria-pressed="true"] {
+    @apply bg-blue-100 text-blue-700 dark:bg-blue-700 dark:text-white;
+}
+
+.skill-svg-icon svg {
+    width: 3rem !important;
+    height: 3rem !important;
+}
