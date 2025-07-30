@@ -6,13 +6,15 @@
         'bg-zinc-500 text-gray-100 font-medium' => $active,
         'hover:bg-zinc-500 text-sidebar-foreground' => !$active,
     ])>
-        {{-- @svg($icon, $active ? 'w-5 h-5 text-white' : 'w-5 h-5 text-gray-500') --}}
         <i
             class="fa {{ $icon }} {{ $active ? 'text-white dark:text-gray-100' : 'text-gray-600 dark:text-gray-400' }} text-xl group-hover:text-gray-100"></i>
-        <span :class="{ 'hidden ml-0': !sidebarOpen, 'ml-3': sidebarOpen }"
-            x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300"
-            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-            class="transition-opacity duration-300">{{ $slot }}</span>
+
+        <span class="ml-3 transition-all duration-300 origin-left" :class="{
+                'opacity-0 w-0 overflow-hidden': !$store.sidebar.open,
+                'opacity-100 w-auto': $store.sidebar.open
+            }">
+            {{ $slot }}
+        </span>
+
     </a>
 </li>
