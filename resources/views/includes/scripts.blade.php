@@ -1,7 +1,5 @@
 @stack('page-js')
 
-<script src="{{ asset('dashboard/js/appearance.js') }}"></script>
-
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.store('sidebar', {

@@ -7,6 +7,7 @@
 @vite(['resources/css/admin.css', 'resources/js/admin.js'])
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('dashboard/js/appearance.js') }}"></script>
 
 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
 
@@ -26,22 +27,6 @@
             }
 
             reader.readAsDataURL(file);
-        }
-    }
-
-    function previewFile2(input) {
-        var file2 = $("input#image").get(0).files[0];
-        console.log(file2);
-
-        if (file2) {
-            var reader2 = new FileReader();
-
-            reader2.onload = function () {
-                $("#previewImg2").attr("src", reader2.result);
-                $(".previewImg2").attr("src", reader2.result);
-            }
-
-            reader2.readAsDataURL(file2);
         }
     }
 </script>

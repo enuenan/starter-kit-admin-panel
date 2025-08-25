@@ -1,3 +1,16 @@
+(function () {
+    const root = document.documentElement;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const savedAppearance = localStorage.getItem("appearance") || "system";
+
+    const isDark =
+        savedAppearance === "dark" ||
+        (savedAppearance === "system" && media.matches);
+
+    root.setAttribute("data-theme", isDark ? "dark" : "light");
+    root.classList.toggle("dark", isDark);
+})();
+
 window.setAppearance = function (appearance) {
     const root = document.documentElement;
     const media = window.matchMedia("(prefers-color-scheme: dark)");
