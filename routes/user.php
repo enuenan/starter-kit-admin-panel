@@ -5,7 +5,6 @@ use App\Http\Controllers\User\{
     DashboardController,
     UserSettingController
 };
-use App\Http\Middleware\IsAdmin;
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.view');
@@ -21,9 +20,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::put('password', [UserSettingController::class, 'updatePassword'])->name('settings.password.update');
 
         Route::get('appearance', [UserSettingController::class, 'editAppearance'])->name('settings.appearance.edit');
-    });
-
-    Route::group(['middleware' => [IsAdmin::class]], function () {
-        require __DIR__ . '/admin.php';
     });
 });
